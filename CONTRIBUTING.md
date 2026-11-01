@@ -24,7 +24,43 @@
 我们鼓励大家参与到代码的重构与优化中。为了保证代码质量，提交 PR 请遵循以下流程：
 
 1. **拉取主分支并新建分支**：
-   ```bash
-   git checkout main
-   git pull origin main
-   git checkout -b feature/your-feature-name
+
+    git checkout main
+    git pull origin main
+    git checkout -b feature/your-feature-name
+
+2. **遵循项目的代码风格**：
+   - 所有核心代码必须**完全摒弃浮点运算**（禁止出现 float），全链路使用纯整数（模10/24）代数运算。
+   - 必须包含标准的 Type Hint（类型提示），如 `def process(self, state: Tuple[int, int, int]) -> int:`。
+   - 核心类与函数的注释需使用标准 Docstring。
+3. **提交说明 (Commit Message)**：
+   请使用规范的提交信息，例如：
+   - `feat: 新增某拓扑算子`
+   - `fix: 修复 PTPP 网关溢出错误`
+   - `docs: 补充某篇白皮书文档`
+4. **提交 PR**：在 PR 描述中，清楚说明您修改了什么，为什么这样改，以及是否有相关的测试验证。
+
+---
+
+## 📂 三、 项目结构速览
+
+在修改代码前，请先了解项目的物理布局：
+
+- `src/polaris/core/`：代数引擎与状态机进位逻辑。
+- `src/polaris/nn/`：纯整数图神经网络层（防过平滑）与生成解码器。
+- `src/polaris/gateway/`：PTPP 大模型防幻觉网关（拓扑投影与因果干预）。
+- `src/polaris/topology/`：九宫三维坐标映射与子图剪枝算法。
+- `examples/`：开箱即用的端到端演示脚本（请确保您的修改不会导致这些脚本报错）。
+- `docs/`：四大核心白皮书与底层数学推导文献。
+
+---
+
+## 🛡️ 四、 开发者公约 (Code of Conduct)
+
+- **保持极客精神**：对事不对人，用数据和代码说话，欢迎硬核的技术争论。
+- **尊重东方系统论**：无论是白皮书还是代码，我们提倡剥离迷信，用现代计算机科学、图论与离散数学去解构东方智慧。
+
+---
+
+> **"放弃对海量数据的执念，回归对空间和拓扑的探索。"**
+> 感谢您的贡献！让我们一起用纯整数，重塑下一代 AI 心智引擎。
