@@ -1,9 +1,0 @@
-{
-  "four_images": {
-    "老阴": {"number": 24, "vertices": 24, "centers": 0, "structure": "一维三实，中心空"},
-    "少阳": {"number": 28, "vertices": 24, "centers": 4, "structure": "一维三实两虚，四中心"},
-    "少阴": {"number": 32, "vertices": 32, "centers": 0, "structure": "二维四实，中心空"},
-    "老阳": {"number": 36, "vertices": 32, "centers": 4, "structure": "二维四实，四中心"}
-  },
-  "generation_chain": ["老阴", "少阳", "少阴", "老阳"]
-}
