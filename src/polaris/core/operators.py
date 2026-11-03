@@ -4,7 +4,7 @@
 
 """
 Polaris Core Operators
-纯整数拓扑基础算子库（包含状态机、进位、逆元与空间偏移）。
+纯整数拓扑基础算子库（包含状态机、进位、逆元、空间偏移与体用归一化）。
 """
 
 from typing import Tuple, Dict
@@ -67,7 +67,7 @@ class ArithmeticOperators:
 
 class TopologicalOperators:
     """
-    拓扑与空间偏移算子（逆元、破对称、三维十字路由）。
+    拓扑与空间偏移算子（逆元、破对称、三维十字路由、体用归一化）。
     """
     @staticmethod
     def inverse_rotate(state: State, k: int = 3) -> State:
@@ -95,3 +95,36 @@ class TopologicalOperators:
             "shadow_1": ((10 - d1) % 10, (10 - d2) % 10, (10 - d3) % 10),
             "shadow_2": ((d1 + 5) % 10, (d2 + 5) % 10, (d3 + 5) % 10)
         }
+
+    @staticmethod
+    def yong_to_ti_normalization(coord: Tuple[int, int, int], val: int) -> int:
+        """
+        体用归一化（先后天互换大吉机制）。
+        通过模10乘法逆元（乘3与乘7），将发散的“后天应用态”瞬间拉回“先天本体态”。
+        
+        Args:
+            coord: 三维空间坐标 (x, y, z)
+            val: 当前节点在该坐标下的纯整数值 (0-9)
+            
+        Returns:
+            归一化后的纯整数值
+        """
+        x, y, z = coord
+        
+        # 中心或面心的 5 保持不动
+        if val == 5:
+            return 5
+
+        # 规则 1：Y=5 外表面
+        if y == 5:
+            if z == 5:
+                return (val * 7) % 10
+            elif z == 1:
+                return (val * 3) % 10
+                
+        # 规则 2：Z=1 外表面且 Y=3 的节点
+        if z == 1 and y == 3:
+            return (val * 3) % 10
+            
+        # 其他情况保持原值（或者可以按需扩展变换规则）
+        return val
