@@ -44,7 +44,7 @@
 
 ### 1. 克隆项目并安装依赖
 
-    git clone https://github.com/999chengying/Polaris-.git
+    git clone https://github.com/999chengying/Polaris
     cd Polaris-
     # 本项目核心库零外部依赖，仅使用 Python 标准库
 
