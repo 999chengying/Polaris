@@ -117,6 +117,7 @@ Polaris 拥有极其硬核的理论体系。请查阅 [文档总索引](./docs/0
 - [x] **纯整数拓扑 Attention**：彻底抛弃 Softmax 与浮点除法，引入“赢者通吃（WTA）掩码”与“空间位置偏置”，完美解决模运算下的 Token 黑洞问题。
 - [x] **纯整数 Transformer 层**：实现 1-3-9-7 循环的纯整数位置编码（零溢出）与基于拓扑相变的纯整数 FFN，完成全套无浮点大模型层拼图。
 - [x] **微型纯整数 GPT**：在完全脱离 PyTorch、无 Tensor 张量、零浮点运算的纯 Python 环境下，成功跑通自回归生成闭环（`examples/demo_micro_gpt.py`）。
+- [x] 64卦分形多智能体网络 (Hexagram Swarm) —— 位于 examples/demo_hexagram_swarm.py
 
 ---
 
