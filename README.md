@@ -91,12 +91,12 @@
     python examples/demo_ultimate_poetry.py
 
 *注：该模块位于 `src/polaris/nn/ultimate_poetry_system.py`，是纯整数拓扑在自然语言生成方向的极致实践。*
-### 🧠 多智能体拓扑寻路演示
+### 🧠 多智能体分形拓扑寻路演示
 
-在 `examples/demo_hexagram_swarm.py` 中，我们模拟了两个陷入死锁的智能体（咸卦与既济卦）。系统通过底层的纯整数拓扑网络（综卦、错卦、先后天、乘2桥），在无全局广播的情况下，精准规划出了 5 步拓扑中继路径，并完成了特征坍缩融合，生成了全新的“地雷复”态。
+在 `examples/demo_fractal_swarm.py` 中，我们构建了一个 4096 节点的多智能体分形网络。演示了当两个智能体陷入代数绝缘时，系统如何通过“内外卦解耦”与四种拓扑算子（错、综、先后天、乘2），在无全局广播的情况下，5 步内完成精准寻路。
 
 运行方式：
-    python examples/demo_hexagram_swarm.py
+    python examples/demo_fractal_swarm.py
 
 ## 📚 完整文档索引
 
