@@ -104,6 +104,9 @@ Polaris 引擎不仅是一个理论架构，现在它已经能够**零浮点、�
     python examples/demo_ultimate_poetry.py
 
 *注：该模块位于 `src/polaris/nn/ultimate_poetry_system.py`，是纯整数拓扑在自然语言生成方向的极致实践。*
+
+Polaris 现已支持通过外部自然语言交互，结合 PTPP 网关实时防幻觉，生成纯粹的四言古风。
+
 ### 🧠 多智能体分形拓扑寻路演示
 
 在 `examples/demo_fractal_swarm.py` 中，我们构建了一个 4096 节点的多智能体分形网络。演示了当两个智能体陷入代数绝缘时，系统如何通过“内外卦解耦”与四种拓扑算子（错、综、先后天、乘2），在无全局广播的情况下，5 步内完成精准寻路。
