@@ -135,6 +135,9 @@ Polaris 拥有极其硬核的理论体系。请查阅 [文档总索引](./docs/0
 - [x] **微型纯整数 GPT**：在完全脱离 PyTorch、无 Tensor 张量、零浮点运算的纯 Python 环境下，成功跑通自回归生成闭环（`examples/demo_micro_gpt.py`）。
 - [x] 64卦分形多智能体网络 (Hexagram Swarm) —— 位于 examples/demo_hexagram_swarm.py
 
+
+"Polaris 3D 拓扑引擎实战：从《谦》到《遁》再到《临》，没有矩阵乘法，只有 Crossbar 的瞬间点亮与熄灭。完美验证了 Layer 2 (错卦) 与 Layer 3 (解耦) 的物理极简性。"
+
 ---
 
 ## 📄 开源协议
