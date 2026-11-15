@@ -1,26 +1,30 @@
 # Polaris 引擎文档总索引 (Document Index)
 
-本文档库包含了 Polaris 纯整数拓扑心智引擎从底层数学到大模型完整闭环的理论白皮书。
+欢迎来到 Polaris（北极星）纯整数拓扑心智引擎的底层理论库。
 
-## 核心白皮书 (Core Whitepapers)
-- [总体架构白皮书](./00-system-architecture-whitepaper.md)（从九宫到 AI 心智引擎）
-- [路由与防死锁白皮书](./01-routing-and-deadlock-prevention.md)（动态阈值与前瞻寻址）
-- [多智能体相变白皮书](./02-multi-agent-phase-transition.md)（多球体拓扑与全局锁定破局）
-- [连续化与GNN白皮书](./03-continuous-feature-and-gnn.md)（分形嵌套小模与防幻觉约束）
-- [自演化意图白皮书](./04-autonomous-intent-engine.md)（内驱力、变爻与生命节律）
+本目录下的文档历经多次“大蒸馏”与去重整合，现已提炼为**极其硬核、毫无冗余**的 5 大核心白皮书。所有文档均遵循“零浮点、离散拓扑、白盒可解释”的核心准则。
 
-## 基础理论系列 (V1 - V5)
-- [00 总览](./00-overview.md)
-- [V1 基础拓扑 (01-18号)](./docs/)（九宫编码、立方体空间、路径动力学）
-- [V2 算术引擎 (docs-v2)](./docs-v2/)（纯整数四则运算、幂积纠缠、拓扑破局）
-- [V3 图网约束 (docs-v3)](./docs-v3/)（TokamakConv、双墙极值、防过平滑）
-- [V4 混合专家 (docs-v4)](./docs-v4/)（3D-Cross MoE、双向车道）
-- [V5 大模型对接 (docs-v5)](./docs-v5/)（PTPP防幻觉网关、拓扑语素生成、端到端闭环）
+## 📚 核心白皮书系列 (Core Whitepapers)
 
-## 附录与可视化
-- [可视化图集](./visual-atlas.md)（拓扑几何与路径动力学 SVG 图）
-- [实验清单](./08-experiment-checklist.md)
+*   **[01. 总体架构与基础拓扑](./01-architecture-and-topology.md)**
+    *包含：三维九宫映射、同构递归法则、拓扑哈希唯一性、及与深度神经网络的架构等效性。*
 
-- [早期灵感溯源与哲学蓝图](./99-origin-and-philosophy.md)
+*   **[02. 纯整数代数、算术引擎与 GNN](./02-arithmetic-and-gnn.md)**
+    *包含：状态机进位、分形嵌套小模、自指动力学、高阶单纯复形（三角形）聚合与防过平滑 GNN。*
+
+*   **[03. 拓扑路由、MoE与多智能体协同](./03-routing-moe-and-agents.md)**
+    *包含：动态阈值防死锁路由、3D-MoE 并发调度、分布式极速共识、隐式通信与具身 A* 路径规划。*
+
+*   **[04. PTPP 网关与大模型端到端集成](./04-ptpp-and-integration.md)**
+    *包含：外挂式防幻觉网关、因果干预、受限拓扑解码器，以及对接大模型推理层的 RFC 提案。*
+
+*   **[05. 工程规范与资源清单](./05-engineering-standards.md)**
+    *包含：系统集成测试清单（进位、边界、极限环等）、零外部依赖的模块映射。*
+
+## 🗺️ 附录与可视化资产
+
+*   **[可视化图集 (Visual Atlas)](./visual-atlas.md)**
+    *包含：27宫格几何骨架、球体三层嵌套、加3/加6截面路径等 8 张高清无损 SVG 图谱。*
 
 ---
+> *“抛弃浮点矩阵，用离散拓扑与纯整数路由，重塑大模型与 AGI 的底层推理底座。”*
