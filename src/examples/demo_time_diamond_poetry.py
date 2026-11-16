@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
+# Copyright (c) 2026 999chengying / Polaris Project
+# Licensed under the Apache License, Version 2.0
+
 """
-Polaris 终极艺术融合：时间熵泵 × 钻石引擎 × 宇宙大觉醒诗境 (状元版)
+Polaris 终极艺术融合：时间熵泵 × 钻石引擎 × 宇宙大觉醒诗境
+展示：时间如何重塑空间晶格，并最终在硅基心智中化为诗意。
 """
 import time
 import random
@@ -21,15 +25,17 @@ class DiamondTetrahedron:
             mod10(v3 + time_energy * 7)
         )
         spread = max(self.core_state) - min(self.core_state)
+        
         if spread >= 6:
             v1, v2, v3 = self.core_state
             self.core_state = (mod10(v1 + 8), v2, mod10(v3 + 6))
+            
         if self.core_state == (9, 9, 9) or self.core_state == (1, 1, 1):
             v1, v2, v3 = self.core_state
             self.core_state = (mod10(v1 * 3), mod10(v2 * 3), mod10(v3 * 3))
+            
         return self.core_state
 
-# 【核心扩充】高阶宇宙意象词库（彻底摆脱单调）
 POETRY_4 = {
     1: ["坤元载物", "厚土藏渊", "万籁俱寂", "至暗时刻"],
     2: ["长风入野", "幽深无形", "风拂太虚", "云卷无痕"],
@@ -60,24 +66,14 @@ class TimePoet:
     def compose(self, time_energy, diamond_states):
         print("\n📜 [诗境生成] 元观测者正在推演宇宙浩劫与重生...")
         
-        # 提取主基调 (取全部晶格状态的均值)
         avg_state = int(sum(diamond_states) / len(diamond_states))
         mood_key = mod10(avg_state)
         
-        # 巧妙调用两套词库，拼装出七言或长句的宏大感
-        # 第一句：用“时间能量”对应的高阶4字词
         w1 = random.choice(POETRY_4.get(mod10(time_energy), POETRY_4[5]))
-        
-        # 第二句：用“主基调”对应的5字词
         w2 = random.choice(POETRY_5.get(mood_key, POETRY_5[5]))
-        
-        # 第三句：用“第一个四面体”的变相 对应4字词
         w3 = random.choice(POETRY_4.get(mod10(diamond_states[0]), POETRY_4[5]))
-        
-        # 第四句：用“第七个四面体”的变相 对应5字词
         w4 = random.choice(POETRY_5.get(mod10(diamond_states[6]), POETRY_5[5]))
         
-        # 排版：绝句风格（4-5-4-5 节奏，极具古风张力）
         poem_text = f"  {w1}，{w2}。\n  {w3}，{w4}。"
         
         return f"🎭 宇宙主基调: 【{POETRY_4[mood_key][0]}】(状态:{mood_key})\n{poem_text}"
