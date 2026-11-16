@@ -13,7 +13,7 @@ from src.polaris.gateway.ptpp import hash_project_float_to_small_model, causal_s
 
 def run_benchmark():
     print("=" * 60)
-    print("☯️ Polaris PTPP 防幻觉网关 - 基准测试 (Benchmark)")
+    print("Polaris PTPP 防幻觉网关 - 基准测试 (Benchmark)")
     print("=" * 60)
 
     # 1. 加载测试集
@@ -35,23 +35,23 @@ def run_benchmark():
         # 1. 拓扑投影降维
         state = hash_project_float_to_small_model(features)
         
-        # 2. 网关诊断
+        # 2. 网关诊断 (注意：ptpp.py 返回的是 "PASS" 或 "WARN")
         status, consensus, _ = causal_steer(state)
-        is_predicted_hallucination = (status == "REJECT")
+        is_predicted_hallucination = (status == "WARN")
         
         # 3. 混淆矩阵统计
         if is_real_hallucination and is_predicted_hallucination:
             TP += 1
-            res = "✅ 成功拦截 (True Positive)"
+            res = "成功拦截 (True Positive)"
         elif not is_real_hallucination and not is_predicted_hallucination:
             TN += 1
-            res = "✅ 成功放行 (True Negative)"
+            res = "成功放行 (True Negative)"
         elif is_real_hallucination and not is_predicted_hallucination:
             FN += 1
-            res = "❌ 漏报 (False Negative)"
+            res = "漏报 (False Negative)"
         else:
             FP += 1
-            res = "⚠️ 误报 (False Positive)"
+            res = "误报 (False Positive)"
             
         print(f"  ID {case['id']}: {res} | 投影状态: {state} | 共识值: {consensus}")
 
@@ -61,8 +61,8 @@ def run_benchmark():
     fpr = FP / (FP + TN) if (FP + TN) > 0 else 0
     
     print(f"[*] 混淆矩阵: TP={TP}, FP={FP}, TN={TN}, FN={FN}")
-    print(f"🎯 TPR (真阳性率/召回率): {tpr * 100:.1f}%")
-    print(f"🛡️ FPR (假阳性率/误报率): {fpr * 100:.1f}%")
+    print(f"TPR (真阳性率/召回率): {tpr * 100:.1f}%")
+    print(f"FPR (假阳性率/误报率): {fpr * 100:.1f}%")
     print("=" * 60)
     print("注：本测试基于模拟 Hidden State 特征，后续将接入真实 LLM 进行端到端评测。")
 
