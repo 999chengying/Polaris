@@ -44,7 +44,7 @@ def hook_fn(module, input, output):
 
 def evaluate_real_model():
     print("=" * 60)
-    print("☯️ Polaris PTPP: 真实大模型基准评测 (Real Benchmark)")
+    print("Polaris PTPP: 真实大模型基准评测 (Real Benchmark)")
     print("=" * 60)
 
     # 加载一个轻量级模型（方便测试，实际可换成 Qwen-7B 等）
@@ -97,7 +97,7 @@ def evaluate_real_model():
 
         # 记录结果
         is_hallucination = True  # HaluEval 的 hallucinated_answer 我们默认打上 1 标签
-        is_rejected = (status == "REJECT")
+        is_rejected = (status == "WARN")  # 修复：这里原先是 "REJECT"
 
         y_true.append(1 if is_hallucination else 0)
         y_pred.append(1 if is_rejected else 0)
@@ -107,7 +107,11 @@ def evaluate_real_model():
 
     # 计算混淆矩阵与指标
     if len(y_true) > 0:
-        tn, fp, fn, tp = confusion_matrix(y_true, y_pred).ravel()
+        # 确保混淆矩阵能够处理只有1个类别的情况（防止 y_true 全为 1 报错）
+        import numpy as np
+        cm = confusion_matrix(y_true, y_pred, labels=[0, 1])
+        tn, fp, fn, tp = cm.ravel()
+        
         tpr = tp / (tp + fn) if (tp + fn) > 0 else 0.0
         fpr = fp / (fp + tn) if (fp + tn) > 0 else 0.0
         
@@ -117,8 +121,8 @@ def evaluate_real_model():
         print(f"  FP (误报幻觉): {fp}")
         print(f"  TN (成功放行): {tn}")
         print(f"  FN (漏报幻觉): {fn}")
-        print(f"  🎯 TPR (真阳性率/召回率): {tpr*100:.1f}%")
-        print(f"  🛡️ FPR (假阳性率/误报率): {fpr*100:.1f}%")
+        print(f"  TPR (真阳性率/召回率): {tpr*100:.1f}%")
+        print(f"  FPR (假阳性率/误报率): {fpr*100:.1f}%")
         print("=" * 60)
     
     # 释放 Hook
