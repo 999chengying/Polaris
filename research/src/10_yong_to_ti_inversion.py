@@ -65,8 +65,8 @@ def run_transformation():
     ti_cube = apply_inverse_transform(use_cube)
     
     print("\n【变换结果验证】")
-    print(f"  原 (1,5,5) [8] -> 变换后 {ti_cube[(1,5,5)]} (目标天香炉: 8)")
-    print(f"  原 (5,5,5) [3] -> 变换后 {ti_cube[(5,5,5)]} (目标天香炉: 3)")
+    print(f"  原 (1,5,5) [8] -> 变换后 {ti_cube[(1,5,5)]} (目标天香炉: 6)")
+    print(f"  原 (5,5,5) [3] -> 变换后 {ti_cube[(5,5,5)]} (目标天香炉: 1)")
     print(f"  原 (1,3,1) [3] -> 变换后 {ti_cube[(1,3,1)]} (目标天香炉: 1)")
     print(f"  原 (5,3,1) [3] -> 变换后 {ti_cube[(5,3,1)]} (目标天香炉: 1)")
     
