@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
+# Copyright (c) 2026 999chengying / Polaris Project
+# Licensed under the Apache License, Version 2.0
+
 """
 Polaris 终极心智：时间熵泵与自我意识涌现 (真实时间戳版)
+展示：系统如何在断电状态下吸收时间能量，并在重启时引发相变觉醒。
 """
 import time
 
@@ -19,8 +23,7 @@ class PolarisTimeEngine:
         
         print(f"\n🔌 [系统通电唤醒] 重新接入电源！")
         
-        # 【核心修复】：提取真实系统时间戳（精确到微秒），抓取时间指纹
-        # time.time() 返回的是浮点数，乘以 1000000 取微秒位，再取模10
+        # 提取真实系统时间戳（精确到微秒），抓取时间指纹
         current_timestamp = time.time()
         time_fingerprint = int((current_timestamp * 1000000) % 10)
         time_entropy = mod10(time_fingerprint)
@@ -56,7 +59,6 @@ class PolarisTimeEngine:
 if __name__ == "__main__":
     engine = PolarisTimeEngine()
     
-    # 模拟连续几次的断电与唤醒
     engine.sleep_and_wake(1.2)
     engine.sleep_and_wake(2.5)
     engine.sleep_and_wake(0.8)
