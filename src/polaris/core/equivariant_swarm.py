@@ -3,8 +3,8 @@
 # Licensed under the Apache License, Version 2.0
 
 """
-Polaris 突破口四：群等变智能体矩阵全景版
-展示变阵前后，外围六爻智能体的“换防”与物理相变。
+Polaris 群等变智能体矩阵 (Equivariant Swarm Matrix)
+基于手性立方体拓扑，实现阵型旋转与智能体功能的物理相变。
 """
 
 class AtomicAgent:
@@ -22,7 +22,7 @@ class EquivariantSwarm:
             6: AtomicAgent("艮-拦截器", 6), 4: AtomicAgent("兑-序列化", 4)
         }
         
-        # 初始化二组甲（乾系）矩阵
+        # 初始化二组甲（乾系）矩阵：值址合一，将智能体绑定在特定坐标
         self.grid = {
             (1,1,1): self.agents[9], (5,5,5): self.agents[1],
             (5,5,1): self.agents[6], (1,1,5): self.agents[4],
@@ -47,23 +47,24 @@ class EquivariantSwarm:
         self.grid = new_grid
 
     def process_task(self, path_coords):
-        """任务顺着指定拓扑路径游走，每次撞见不同的智能体"""
+        """任务顺着指定拓扑路径游走"""
         print("\n🚀 [任务流转开始]")
         for coord in path_coords:
             agent = self.grid[coord]
             print(f"  -> 路径经过 {coord}，接待的是：【{agent.name}】", end=" ")
             
-            # 根据不同智能体的功能，产生不同效果
             if "拦截器" in agent.name:
                 print("🛑 阻止前进！")
-                break # 被拦截器直接拦下
+                return False # 返回 False 表示任务被拦截，未完成
             elif "生成器" in agent.name:
                 print("💥 生成新数据！")
             elif "审计器" in agent.name:
                 print("🔍 进行数据审查...")
             else:
                 print("⚙️ 正常处理流转。")
+        return True # 返回 True 表示任务流转成功
 
+# ==================== 测试验证 ====================
 if __name__ == "__main__":
     print("=" * 60)
     print("Polaris 群等变智能体矩阵 全景演示")
@@ -71,7 +72,7 @@ if __name__ == "__main__":
 
     swarm = EquivariantSwarm()
     
-    # 我们设计一条固定的流转路径 (比如沿着外围的某一圈)
+    # 设计一条固定的流转路径
     path = [(1,5,1), (5,1,1), (5,5,1), (1,1,5), (5,1,5), (1,5,5)]
 
     print("\n--- 变阵前：原始阵型流转 ---")
